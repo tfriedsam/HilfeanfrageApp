@@ -9,3 +9,19 @@ Konkretisierungsvorschlag:
 
 In der APP wird eine Feststellung des eigenen Standortes per GPS benötigt. Basierend darauf kann dann eine Hilfeanfrage gesendet werden (Kategorie und Reichweite einstellen). 
 Die Hilfeanfrage geht dann an alle sich im angegebenen Radius befindlichen Geräte heraus. Voraussetzung wird sein, dass diese ebenfalls die APP aktiviert haben.
+
+
+Ablaufplan zur Umsetzung: 
+
+	a. Alle Apps schicken Ihre Position regelmäßig an den Server
+	b. Server speichert die Positionen
+	c. App Nutzer sendet eine Hilfeanfrage
+	d. Dazu wird die aktuelle Position an den Server übermittelt
+	e. Der Server prüft, on sich Nutzer in der Nähe befinden
+	f. Wenn nicht, wird an den Anfragenden eine Nachricht gesendet, dass aktuell kein Nutzer in der Nähe ist
+	g. Wenn ja, wird die Anfrage an alle Apps in der Nähe (erweiterter Bereich wegen Aktualisierung) geschickt
+	h. Die App prüft beim Empfänger ob er sich noch im Umkreis befindet
+	i. Wenn ja wird eine Push Notifikation angezeigt
+	j. Der Nutzer kann die Hilfeanfrage annehmen oder ablehnen
+	k. Bei Annahme wird eine Nachricht an den Sender geschickt, dass Hilfe unterwegs ist und wie weit die Hilfe noch weg ist
+	l. Der Nutzer der annimmt bekommt eine Karte angezeigt mit der Route zum hilfsbedürftigen
