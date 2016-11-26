@@ -1,9 +1,16 @@
 # HilfeanfrageApp
-NeueNaeheHackathon: Versendung einer Hilfeanfrage per APP
+NeueNaeheHackathon: Versendung einer Hilfeanfrage per APP, welche sich in geographischer Nähe befinden
 
 Basisidee:
 
-Eine App, in der ein Behinderter ein Hilfegesuch samt Standort senden kann, wenn er einmal nicht weiterkommt! Beispiel: Er steht vor drei Treppen mit seinem Rollstuhl und kommt nicht weiter. Ich stehe um die Ecke und sehe das nicht. Die App sendet den Hilferuf an alle Menschen, die zum Beispiel im Umkreis von 200 Metern in der Stadt um ihn herum sind und zack - da ich davon weiß, gehe ich um die Ecke und kann ihm schon helfen!... Der Senderadius sollte abhängig gemacht werden von Tageszeit und Lauffrequenz (Innenstadt/ Wohngebiet). Es nützt ja nichts, wenn ich Hilfegesuche aus dem anderen Ende von Köln bekomme. Und es dadurch zu viele werden am Tag, weil ich jedes Gesuch von Köln mitbekomme. Und: Für mich ist Hilfe wenn ich in der Nähe bin kein großes Ding, für den Behinderten schon! Und macht man auch sehr gerne!
+Eine App, in der ein Behinderter ein Hilfegesuch samt Standort senden kann, wenn er einmal nicht weiterkommt! Beispiel: Er steht vor drei Treppen oder einem sonstigen Hinderniss mit seinem Rollstuhl und kommt nicht weiter. Ich stehe um die Ecke und sehe das nicht. Die App sendet den Hilferuf an alle Menschen, die sich zum Beispiel im Umkreis von 200 Metern in der Stadt um ihn herum aufhalten und zack - da ich davon weiß, gehe ich um die Ecke und kann ihm schon helfen!... 
+
+Anforderung:
+Der Senderadius sollte abhängig gemacht werden von Tageszeit und Lauffrequenz (Innenstadt/ Wohngebiet). Es nützt ja nichts, wenn ich Hilfegesuche aus dem anderen Ende von Köln bekomme. Und es dadurch zu viele werden am Tag, weil ich jedes Gesuch von Köln mitbekomme. 
+
+
+
+Und: Für mich ist Hilfe wenn ich in der Nähe bin kein großes Ding, für den Behinderten schon! Und macht man auch sehr gerne!
 
 Konkretisierungsvorschlag:
 
@@ -25,3 +32,5 @@ Ablaufplan zur Umsetzung:
 	j. Der Nutzer kann die Hilfeanfrage annehmen oder ablehnen
 	k. Bei Annahme wird eine Nachricht an den Sender geschickt, dass Hilfe unterwegs ist und wie weit die Hilfe noch weg ist
 	l. Der Nutzer der annimmt bekommt eine Karte angezeigt mit der Route zum hilfsbedürftigen
+
+
