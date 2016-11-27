@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Anmelden
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Willkommen</h1>
+  <p>Mit dieser App können Sie Hilfeanfragen versenden und beantworten.</p>
+  <p>Ihre Hilfeanfrage wird dann an Nutzer in Ihrer Nähe weitergeleitet. Diese können dann Ihre Anfrage annehmen und Ihnen Unterstützung anbieten</p>
+  <p>Anfragen ersetzen keinen Notruf!</p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked color="primary">Email</ion-label>
+      <ion-input placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Passwort</ion-label>
+      <ion-input type="password" placeholder="Passwort"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="center">
+    <button full ion-button color="primary" (click)="login()">Anmelden</button>
+    <p>
+      Noch keinen Account?<br>
+      <button ion-button outline color="dark" (click)="register()">Kostenlos registrieren</button>
+    </p>
+  </div>
+</ion-content>
+

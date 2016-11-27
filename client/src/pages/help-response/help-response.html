@@ -1,0 +1,50 @@
+<!--
+  Generated template for the HelpResponse page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Hilfanfrage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <p>Folgende <strong>Hilfeanfrage</strong> wurde von einem Nutzer in Ihrer <strong>Nähe</strong> gestellt.</p>
+    </ion-item>
+    <ion-item>
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <strong>{{ notification.kategorieBez}}</strong>
+          <ion-badge item-right>
+            Max. {{ notification.maxEntfernung }}m
+          </ion-badge>
+          <p>{{ notification.anfrageText}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">Nachricht (Optional)</ion-label>
+      <ion-input [(ngModel)]="antwort.Antworttext"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-buttons>
+    <button ion-button dark (click)="decline()" icon-left>
+      <ion-icon name="close"></ion-icon>
+      Ablehnen
+    </button>
+    <button ion-button success (click)="accept()" icon-left>
+      <ion-icon name="checkmark"></ion-icon>
+      Annehmen
+    </button>
+  </ion-buttons>
+
+</ion-content>

@@ -1,5 +1,6 @@
 {
   "name": "ionic-hello-world",
+  "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -36,6 +37,12 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": [],
+  "cordovaPlatforms": [
+    {
+      "platform": "browser",
+      "version": "",
+      "locator": "browser"
+    }
+  ],
   "description": "client: An Ionic project"
 }

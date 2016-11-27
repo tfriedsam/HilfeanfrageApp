@@ -1,0 +1,48 @@
+<!--
+  Generated template for the HelpDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Aktuelle Anfrage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-card>
+        <ion-card-header>
+          Anfrage von {{ anfrageNutzer.Vorname }} {{ anfrageNutzer.Nachname }}
+        </ion-card-header>
+        <ion-card-content>
+          <strong>{{ anfrage.kategorieBez}}</strong>
+          <ion-badge item-right>
+            Max. {{ anfrage.maxEntfernung }}m
+          </ion-badge>
+          <p>{{ anfrage.anfrageText}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+    <ion-item>
+      <ion-card>
+        <ion-card-header>
+          Beantwortet von {{ antwortNutzer.Vorname }} {{ anfrageNutzer.Nachname }}
+        </ion-card-header>
+        <ion-card-content *ngIf="antwort.antwortText">
+          <p>{{ antwort.antwortText }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+    <ion-item *ngIf="user.id === antwortNutzer.id">
+      <ion-label>Navigation anzeigen</ion-label>
+  <ion-checkbox primary checked="false" [(ngModel)]="sohwNavigation"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <div #map id="map" [hidden]="showNavigation"></div>
+  <div #directions id="directions" [hidden]="!showNavigation"></div>
+</ion-content>

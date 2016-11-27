@@ -1,18 +1,25 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Azure } from '../services/azure';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { LoginPage } from '../pages/login/login';
+import { SettingsPage } from '../pages/settings/settings';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { MenuPage } from '../pages/menu/menu';
+import { HelpRequestPage } from '../pages/help-request/help-request';
+import { HelpDetailPage } from '../pages/help-detail/help-detail';
+import { HelpResponsePage } from '../pages/help-response/help-response';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    LoginPage,
+    SettingsPage,
     HomePage,
-    TabsPage
+    MenuPage,
+    HelpRequestPage,
+    HelpDetailPage,
+    HelpResponsePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,11 +27,17 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    LoginPage,
+    SettingsPage,
     HomePage,
-    TabsPage
+    MenuPage,
+    HelpRequestPage,
+    HelpDetailPage,
+    HelpResponsePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Azure
+  ]
 })
 export class AppModule {}

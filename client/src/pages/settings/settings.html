@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Einstellungen
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item  *ngIf="user">
+    <ion-avatar item-left>
+      <img src="img/my-avatar.png">
+    </ion-avatar>
+    <h2>{{user.Vorname}} {{user.Nachname}}</h2>
+  </ion-item>
+
+  <ion-list *ngIf="konfig">
+    <ion-item>
+      <ion-label stacked color="primary">Entfernung {{konfig.umkreis}} </ion-label>
+      <ion-range min="100" max="2000" [(ngModel)]="konfig.umkreis" color="primary">
+        <ion-label range-left>
+          <ion-icon name="minus"></ion-icon>
+        </ion-label>
+        <ion-label range-right>
+          <ion-icon name="plus"></ion-icon>
+        </ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Wartezeit {{konfig.wartezeit}} (Minuten)</ion-label>
+      <ion-range min="1" max="30" [(ngModel)]="konfig.wartezeit" color="primary">
+        <ion-label range-left>
+          <ion-icon name="minus"></ion-icon>
+        </ion-label>
+        <ion-label range-right>
+          <ion-icon name="plus"></ion-icon>
+        </ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Beeinträchtigung</ion-label>
+      <ion-select [(ngModel)]="konfig.Nutzerkategorie_ID">
+        <ion-option *ngFor="let k of kategorien" value="{{k.id}}">{{k.bezeichnung}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="save()" primary>Speichern</button>
+</ion-content>
