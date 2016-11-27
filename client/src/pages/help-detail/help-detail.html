@@ -16,31 +16,31 @@
   <ion-list>
     <ion-item>
       <ion-card>
-        <ion-card-header>
-          Anfrage von {{ anfrageNutzer.Vorname }} {{ anfrageNutzer.Nachname }}
+        <ion-card-header *ngIf="anfrageNutzer && anfrage">
+          Anfrage von {{ anfrageNutzer.Vorname }} {{ anfrageNutzer.Name }}
         </ion-card-header>
         <ion-card-content>
           <strong>{{ anfrage.kategorieBez}}</strong>
           <ion-badge item-right>
             Max. {{ anfrage.maxEntfernung }}m
           </ion-badge>
-          <p>{{ anfrage.anfrageText}}</p>
+          <p>{{ anfrage.Anfragetext}}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
     <ion-item>
       <ion-card>
-        <ion-card-header>
-          Beantwortet von {{ antwortNutzer.Vorname }} {{ anfrageNutzer.Nachname }}
+        <ion-card-header *ngIf="antwortNutzer && antwort">
+          Beantwortet von {{ antwortNutzer.Vorname }} {{ antwortNutzer.Name }}
         </ion-card-header>
         <ion-card-content *ngIf="antwort.antwortText">
           <p>{{ antwort.antwortText }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
-    <ion-item *ngIf="user.id === antwortNutzer.id">
+    <ion-item *ngIf="!fromAnfrage">
       <ion-label>Navigation anzeigen</ion-label>
-  <ion-checkbox primary checked="false" [(ngModel)]="sohwNavigation"></ion-checkbox>
+      <ion-checkbox primary [(ngModel)]="showNavigation"></ion-checkbox>
     </ion-item>
   </ion-list>
   <div #map id="map" [hidden]="showNavigation"></div>

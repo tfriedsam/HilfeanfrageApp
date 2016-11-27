@@ -1,3 +1,16 @@
 page-help-detail {
-
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    > ion-list {
+      flex: none;
+      > ion-item {
+        padding: 0;
+      }
+    }
+    > #map {
+      width: 100%;
+      flex: auto;
+    }
+  }
 }

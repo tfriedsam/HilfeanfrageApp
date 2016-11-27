@@ -19,7 +19,7 @@ declare var google;
 })
 export class HelpDetailPage {
 
-  @Input() showNavigation = false;
+  showNavigation = false;
 
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('directions') directionElement: ElementRef;
@@ -39,28 +39,39 @@ export class HelpDetailPage {
   fromAnfrage: any;
 
   constructor(public azure: Azure, public navCtrl: NavController, navParams: NavParams) {
+    console.log("Help Detail", navParams);
     this.anfrage = navParams.get('anfrage');
     this.antwort = navParams.get('antwort');
     this.fromAnfrage = navParams.get('fromAnfrage')
+    console.log("fromAnfrage", this.fromAnfrage);
   }
 
   ionViewDidLoad(){
     this.loadMap();
     if(this.fromAnfrage) {
+      console.log("As Hilfesuchender");
       this.anfrageNutzer = this.azure.user;
+      console.log("Suche Nutzer", this.antwort.Nutzer_ID);
       this.azure.userTable.lookup(this.antwort.Nutzer_ID).then(
         (result) => {
+          console.log("Setze nutzer", result);
           this.antwortNutzer = result;
         }
       )
     } else {
+      console.log("As Helfer");
       this.antwortNutzer = this.azure.user;
+      console.log("Frage ab", this.anfrage.anfrageId);
       this.azure.anfrageTable.lookup(this.anfrage.anfrageId).then(
         (result) => {
+          console.log("setze Anfrage", result);
+          result.maxEntfernung = this.anfrage.maxEntfernung;
           this.anfrage = result;
-          this.navigateTo(result.Laengengrate, result.Breitengrad);
+          this.navigateTo(result.Laengengrad, result.Breitengrad);
+          console.log("Suche nutzer", result.Nutzer_ID);
           this.azure.userTable.lookup(result.Nutzer_ID).then(
             (aUser) => {
+              console.log("Setze Nutzer", aUser);
               this.anfrageNutzer = aUser;
             }
           )
@@ -74,7 +85,7 @@ export class HelpDetailPage {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
+    console.log("loading map");
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     this.posMarker = new google.maps.Marker({
       map: this.map,

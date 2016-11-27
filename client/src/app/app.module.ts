@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { MenuPage } from '../pages/menu/menu';
 import { HelpRequestPage } from '../pages/help-request/help-request';
 import { HelpDetailPage } from '../pages/help-detail/help-detail';
+import { HelpWaitPage } from '../pages/help-wait/help-wait';
 import { HelpResponsePage } from '../pages/help-response/help-response';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HelpResponsePage } from '../pages/help-response/help-response';
     MenuPage,
     HelpRequestPage,
     HelpDetailPage,
+    HelpWaitPage,
     HelpResponsePage
   ],
   imports: [
@@ -33,6 +35,7 @@ import { HelpResponsePage } from '../pages/help-response/help-response';
     MenuPage,
     HelpRequestPage,
     HelpDetailPage,
+    HelpWaitPage,
     HelpResponsePage
   ],
   providers: [

@@ -25,7 +25,6 @@ export class LoginPage {
   constructor(public platform: Platform, public azure: Azure, public navCtrl: NavController) {
     platform.ready().then(
       () => {
-        let device = new Device();
         this.deviceId = Device.device.uuid || ("browser");
       }
     );
@@ -77,6 +76,10 @@ export class LoginPage {
                       anfrageId: "{$(anfrageID)}",
                       anfrageText: "{$(anfrageText)}",
                       maxEntfernung: "{$(maxEntfernung)}",
+                      Nutzer_ID: "{$(Nutzer_ID)}",
+                      Antworttext: "{$(Antworttext)}",
+                      Breitengrad: "{$(Breitengrad)}",
+                      Laengengrad: "{$(Laengengrad)}"
                     } } }
                 }).then(
                   () => console.log("Azure Push registriert"),
@@ -98,12 +101,16 @@ export class LoginPage {
 
           });
           push.on('notification', (data) => {
-            console.log(data);
-            if(data.additionalData['Antworttext']) {
-              this.navCtrl.push(HelpDetailPage, {antwort: data.additionalData,
-                                                 anfrage: this.azure.aktuelleAnfrage});
+            console.log("Notification Data",data);
+            console.log("Notification aktuelle Anfrage", this.azure.aktuelleAnfrage);
+            if(this.azure.aktuelleAnfrage && data.additionalData['Antworttext']) {
+              this.navCtrl.setRoot(HelpDetailPage,
+                                   {antwort: data.additionalData,
+                                    anfrage: this.azure.aktuelleAnfrage,
+                                    fromAnfrage: true});
+            } else if(this.azure.aktuelleAnfrage === undefined && data.additionalData['anfrageId']){
+              this.navCtrl.setRoot(HelpResponsePage, {notification: data.additionalData});
             }
-            this.navCtrl.push(HelpResponsePage, {notification: data.additionalData});
           });
 
           push.on('error', (e) => {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { HelpDetailPage } from '../help-detail/help-detail';
 
 import { Azure } from '../../services/azure';
 
@@ -16,9 +17,6 @@ export class HelpResponsePage {
   antwort: any = {};
 
   constructor(public azure: Azure, public navCtrl: NavController, navParams: NavParams) {
-    console.log("constructor")
-    console.log(navParams);
-    console.log(navParams.get('notification'));
     this.notification = navParams.get('notification');
   }
 
@@ -33,7 +31,14 @@ export class HelpResponsePage {
   accept() {
     this.antwort.Nutzer_ID = this.azure.user.id;
     this.antwort.Anfrage_ID = this.notification.anfrageId;
-    this.azure.antwortTable.insert(this.antwort)
+    this.azure.antwortTable.insert(this.antwort).then(
+      (r) => {
+        console.log("Antwort erstellt", r)
+        console.log("Übertrag Anfrage", this.notification)
+        this.navCtrl.setRoot(HelpDetailPage, {antwort: r,
+                                              anfrage: this.notification});
+      }
+    )
   }
 
 }
