@@ -5,6 +5,7 @@ import { NavController } from 'ionic-angular';
 import { Azure } from "../../services/azure";
 
 import { HelpRequestPage } from "../help-request/help-request"
+import { SettingsPage } from "../settings/settings"
 
 @Component({
   selector: 'page-home',
@@ -20,6 +21,10 @@ export class HomePage {
   }
 
   goToHelp() {
-    this.navCtrl.push(HelpRequestPage)
+    this.navCtrl.setRoot(HelpRequestPage);
+  }
+
+  goToSettings() {
+    this.navCtrl.push(SettingsPage);
   }
 }

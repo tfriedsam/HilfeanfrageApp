@@ -20,13 +20,12 @@ export class MenuPage {
       {title: "Anfrage stellen", page: HelpRequestPage, icon: "notifications"},
       // {title: "Aktive Anfrage", page: {}, icon: "contact"},
       // {title: "Anfrage beantworten", page: {}, icon: "left-a"},
-      {title: "Einstellungen", page: SettingsPage, icon: "settings"},
-      // {title: "Einstellungen", page: {}, icon: "login"}
+      {title: "Einstellungen", page: SettingsPage, icon: "settings"}
     ];
   }
 
   openPage(page) {
     console.log("navigate to", page);
-    this.navCtrl.push(page.page);
+    this.navCtrl.setRoot(page.page);
   }
 }
